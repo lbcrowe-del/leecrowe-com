@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lee Crowe</title>
+<meta name="description" content="Lee Crowe designs and builds software: IT tools like ServerBridge, consumer apps like Halera, and custom software built to fit your needs.">
+<meta property="og:title" content="Lee Crowe">
+<meta property="og:description" content="IT tools, consumer apps, and custom software, built in Lexington, Kentucky.">
+<meta property="og:url" content="https://www.leecrowe.com/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230B5FA5'/><text x='50' y='67' font-size='52' font-family='Arial,sans-serif' font-weight='700' text-anchor='middle' fill='white'>LC</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F4F6F8;
+    --surface: #FFFFFF;
+    --ink: #17212B;
+    --muted: #56616D;
+    --rule: #D5DBE2;
+    --accent: #0B5FA5;
+    --accent-soft: #DCE8F4;
+    --soon: #9A6410;
+    --soon-soft: #F6EAD5;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    color-scheme: light dark;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #121A22;
+      --surface: #19232D;
+      --ink: #E8EDF2;
+      --muted: #9AA6B2;
+      --rule: #2C3946;
+      --accent: #6AAEEA;
+      --accent-soft: #1C3348;
+      --soon: #E0B061;
+      --soon-soft: #3A2E1A;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #121A22; --surface: #19232D; --ink: #E8EDF2; --muted: #9AA6B2;
+    --rule: #2C3946; --accent: #6AAEEA; --accent-soft: #1C3348;
+    --soon: #E0B061; --soon-soft: #3A2E1A;
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Schibsted Grotesk", "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); }
+  a:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; border-radius: 4px; }
+
+  .wrap {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: clamp(3rem, 9vw, 6.5rem) 1.5rem 3rem;
+  }
+
+  /* Hero */
+  h1 {
+    font-size: clamp(3.25rem, 11vw, 6rem);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+    margin: 0 0 1.5rem;
+  }
+  .intro {
+    font-size: clamp(1.15rem, 2.6vw, 1.35rem);
+    line-height: 1.5;
+    max-width: 34em;
+    margin: 0;
+  }
+  .intro + .intro { color: var(--muted); font-size: 1.0625rem; margin-top: 1rem; }
+
+  /* Hub: a trunk line with a node for each site */
+  .hub {
+    list-style: none;
+    margin: clamp(3rem, 7vw, 4.5rem) 0 0;
+    padding: 0 0 0 1.75rem;
+    position: relative;
+  }
+  .hub::before {
+    content: "";
+    position: absolute;
+    left: 0.4rem; top: 1.9rem; bottom: 1.9rem;
+    width: 2px;
+    background: var(--rule);
+  }
+  .hub li { position: relative; }
+  .hub li + li { margin-top: 1rem; }
+  .hub li::before {
+    content: "";
+    position: absolute;
+    left: -1.75rem; top: 1.65rem;
+    width: 1.35rem; height: 2px;
+    background: var(--rule);
+  }
+  .hub li::after {
+    content: "";
+    position: absolute;
+    left: calc(-1.75rem + 0.4rem - 5px); top: calc(1.65rem - 5px);
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--accent);
+  }
+  .hub li.soon::after { border-color: var(--soon); }
+
+  .site {
+    display: block;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 1.1rem 1.35rem 1.2rem;
+    color: inherit;
+    text-decoration: none;
+    transition: border-color .15s ease;
+  }
+  a.site:hover { border-color: var(--accent); }
+  a.site:hover .domain { text-decoration: underline; }
+  .site-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.25rem 1rem;
+  }
+  .site h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+  .domain { color: var(--accent); font-weight: 500; font-size: 0.95rem; }
+  .site p { margin: 0.35rem 0 0; color: var(--muted); max-width: 36em; }
+  .badge {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--soon);
+    background: var(--soon-soft);
+    padding: 0.1rem 0.6rem;
+    border-radius: 999px;
+  }
+  .parent { margin-left: 0; }
+  .child-note { font-size: 0.9rem; }
+
+  /* Contact + footer */
+  .contact {
+    margin-top: clamp(3rem, 7vw, 4.5rem);
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+  }
+  .contact h2 { font-size: 1.3rem; margin: 0 0 0.4rem; }
+  .contact p { margin: 0; color: var(--muted); }
+  .contact a { font-weight: 500; }
+  footer {
+    margin-top: 3rem;
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+
+  @media (max-width: 480px) {
+    .hub { padding-left: 1.4rem; }
+    .hub li::before { left: -1.4rem; width: 1rem; }
+    .hub li::after { left: calc(-1.4rem + 0.4rem - 5px); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <h1>Lee Crowe</h1>
+      <p class="intro">I design and build software: tools for IT teams, apps for everyday life, and custom solutions for whatever you need.</p>
+      <p class="intro">Twenty-plus years in IT, now building my own products in Lexington, Kentucky. MBA and MITM from Sullivan University.</p>
+    </header>
+
+    <ul class="hub" aria-label="My sites">
+      <li>
+        <a class="site" href="https://leecrowesoftware.com">
+          <div class="site-head">
+            <h2>Lee Crowe Software Solutions</h2>
+            <span class="domain">leecrowesoftware.com</span>
+          </div>
+          <p>My software company, home to my products and custom development work.</p>
+        </a>
+      </li>
+      <li>
+        <a class="site" href="https://server-bridge.com">
+          <div class="site-head">
+            <h2>ServerBridge</h2>
+            <span class="domain">server-bridge.com</span>
+          </div>
+          <p>A step-by-step wizard for moving file server data into Microsoft 365.</p>
+        </a>
+      </li>
+      <li>
+        <a class="site" href="https://gethalera.com">
+          <div class="site-head">
+            <h2>Halera</h2>
+            <span class="domain">gethalera.com</span>
+          </div>
+          <p>A personal health and fitness tracker, available on the App Store and Google Play.</p>
+        </a>
+      </li>
+    </ul>
+
+    <section class="contact" aria-labelledby="contact-h">
+      <h2 id="contact-h">Need something built?</h2>
+      <p>I build custom software to fit what you need. Email me at <a href="mailto:hello@leecrowesoftware.com">hello@leecrowesoftware.com</a> and tell me the problem you're trying to solve.</p>
+    </section>
+
+    <footer>&copy; <span id="yr">2026</span> Lee Crowe</footer>
+  </main>
+  <script>
+    try { document.getElementById('yr').textContent = new Date().getFullYear(); } catch (e) {}
+  </script>
+</body>
+</html>
