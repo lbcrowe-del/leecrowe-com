@@ -4,6 +4,11 @@
       "route": "/grocerylist",
       "redirect": "https://nomoredadbod.gumroad.com/l/lgskd",
       "statusCode": 301
+    },
+    {
+      "route": "/gearlist",
+      "redirect": "https://nomoredadbod.leecrowe.workers.dev",
+      "statusCode": 301
     }
   ]
 }
