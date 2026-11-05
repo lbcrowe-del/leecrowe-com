@@ -1,0 +1,9 @@
+{
+  "routes": [
+    {
+      "route": "/grocerylist",
+      "redirect": "https://nomoredadbod.gumroad.com/l/lgskd",
+      "statusCode": 301
+    }
+  ]
+}
